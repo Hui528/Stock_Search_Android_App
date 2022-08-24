@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:id="@+id/ticker"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="15dp"
+            android:text="ticker" />
+
+        <TextView
+            android:id="@+id/company_name"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="50dp"
+            android:text="name" />
+
+        <TextView
+            android:id="@+id/current_price"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:text="current_price" />
+
+        <ImageView
+            android:id="@+id/change_icon_down"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="215dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/trending_down"/>
+
+        <ImageView
+            android:id="@+id/change_icon_up"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="215dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/trending_up"/>
+
+        <TextView
+            android:id="@+id/change_and_percent"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="50dp"
+            android:text="change" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

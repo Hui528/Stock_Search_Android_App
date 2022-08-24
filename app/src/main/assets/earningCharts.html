@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container" style="height: 300px; min-width: 310px"></div>
+</body>
+
+<script>
+
+    function timeZone(timestamp) {
+        // var moment = moment()
+        // var zone = 'America/Los_Angeles',
+        // timezoneOffset = -moment.tz(timestamp, zone).utcOffset();
+        timezoneOffset = -moment(timestamp).tz("America/Los_Angeles").utcOffset();
+        return timezoneOffset;
+    }
+
+    let actual = [];
+    let estimate = [];
+    let xAxisLabel = [];
+    ticker = "TSLA"
+    function fetchEarningData(input, url) {
+        ticker = input;
+        Highcharts.getJSON(url, function (res) {
+            let length = res.length;
+            let i;
+            for (i = 0; i < length; i++) {
+                actual.push(res[i].actual);
+                estimate.push(res[i].estimate);
+                xAxisLabel.push(`${res[i].period}<br/>Surprise: ${res[i].surprise}`);
+            }
+
+            Highcharts.chart('container', {
+                chart: {
+                    type: "spline"
+                },
+                title: {
+                    text: "Historical EPS Surprises"
+                },
+                xAxis: {
+                    categories: xAxisLabel
+                },
+                yAxis: {
+                    title: {
+                        text: "Quarterly EPS"
+                    }
+                },
+                series: [{
+                    name: 'Actual',
+                    type: 'line',
+                    data: actual
+                },
+                {
+                    name: 'Estimate',
+                    type: 'line',
+                    data: estimate
+                }]
+            })
+        })
+    }
+
+
+
+</script>
+
+</html>

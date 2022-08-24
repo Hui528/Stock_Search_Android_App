@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/drag-panes.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/indicators.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/volume-by-price.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container" style="height: 300px; min-width: 310px"></div>
+</body>
+
+<script>
+
+    function timeZone(timestamp) {
+        timezoneOffset = -moment(timestamp).tz("America/Los_Angeles").utcOffset();
+        return timezoneOffset;
+    }
+
+    SMA = [];
+    Volume = [];
+    ticker = "TSLA";
+    function fetchHisData(input, url) {
+        ticker = input;
+        Highcharts.getJSON(url, function (res) {
+            let timestamp = res["timestamp"]
+            let open_prices = res["open_prices"]
+            let high_prices = res["high_prices"]
+            let low_prices = res["low_prices"]
+            let close_prices = res["close_prices"]
+            let volume = res["volume"]
+            let length = close_prices.length;
+            let i;
+            for (i = 0; i < length; i++) {
+                SMA.push([timestamp[i] * 1000, open_prices[i], high_prices[i], low_prices[i], close_prices[i]]);
+                Volume.push([timestamp[i] * 1000, volume[i]]);
+            }
+
+            Highcharts.stockChart('container', {
+                series: [
+                    {
+                        type: 'candlestick',
+                        name: ticker.toUpperCase(),
+                        id: ticker,
+                        zIndex: 2,
+                        data: SMA,
+                    },
+                    {
+                        type: 'column',
+                        name: 'Volume',
+                        id: 'volume',
+                        data: Volume,
+                        yAxis: 1,
+                    },
+                    {
+                        type: 'vbp',
+                        linkedTo: ticker,
+                        params: {
+                            volumeSeriesID: 'volume',
+                        },
+                        dataLabels: {
+                            enabled: false,
+                        },
+                        zoneLines: {
+                            enabled: false,
+                        },
+                    },
+                    {
+                        type: 'sma',
+                        linkedTo: ticker,
+                        zIndex: 1,
+                        marker: {
+                            enabled: false,
+                        },
+                    },
+                ],
+                title: { text: ticker.toUpperCase() + ' Historical' },
+                subtitle: {
+                    text: 'With SMA and Volume by Price technical indicators',
+                },
+                yAxis: [
+                    {
+                        startOnTick: false,
+                        endOnTick: false,
+                        labels: {
+                            align: 'right',
+                            x: -3,
+                        },
+                        title: {
+                            text: 'OHLC',
+                        },
+                        height: '60%',
+                        lineWidth: 2,
+                        resize: {
+                            enabled: true,
+                        },
+                    },
+                    {
+                        labels: {
+                            align: 'right',
+                            x: -3,
+                        },
+                        title: {
+                            text: 'Volume',
+                        },
+                        top: '65%',
+                        height: '35%',
+                        offset: 0,
+                        lineWidth: 2,
+                    },
+                ],
+                tooltip: {
+                    split: true,
+                },
+                rangeSelector: {
+                    buttons: [
+                        {
+                            type: 'month',
+                            count: 1,
+                            text: '1m',
+                        },
+                        {
+                            type: 'month',
+                            count: 3,
+                            text: '3m',
+                        },
+                        {
+                            type: 'month',
+                            count: 6,
+                            text: '6m',
+                        },
+                        {
+                            type: 'ytd',
+                            text: 'YTD',
+                        },
+                        {
+                            type: 'year',
+                            count: 1,
+                            text: '1y',
+                        },
+                        {
+                            type: 'all',
+                            text: 'All',
+                        },
+                    ],
+                    selected: 2,
+                },
+                time: {
+                    getTimezoneOffset: timeZone,
+                },
+            })
+        })
+    }
+
+
+
+</script>
+
+</html>

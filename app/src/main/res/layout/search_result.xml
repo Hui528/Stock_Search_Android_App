@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/header_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:clickable="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/header_ticker"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="TSLA"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+        <ImageView
+            android:id="@+id/header_star"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/star_outline"
+            android:clickable="true"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progressbar_search_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/purple_500">
+        </ProgressBar>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/show_search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:id="@+id/search_details">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+<!--            <include-->
+<!--                android:id="@+id/header"-->
+<!--                layout="@layout/header"/>-->
+
+            <include
+                android:id="@+id/summary"
+                layout="@layout/summary" />
+
+<!--            <include-->
+<!--                android:id="@+id/highcharts"-->
+<!--                layout="@layout/highcharts" />-->
+            <include
+                android:id="@+id/viewpager1"
+                layout="@layout/viewpager" />
+
+            <include
+                android:id="@+id/portfolio"
+                layout="@layout/portfolio" />
+
+            <include
+                android:id="@+id/stats"
+                layout="@layout/stats" />
+
+            <include
+                android:id="@+id/about"
+                layout="@layout/about" />
+
+            <include
+                android:id="@+id/insights"
+                layout="@layout/insights" />
+
+            <include
+                android:id="@+id/trends"
+                layout="@layout/trends" />
+
+            <include
+                android:id="@+id/earning"
+                layout="@layout/earning" />
+
+            <include
+                android:id="@+id/news"
+                layout="@layout/news" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</LinearLayout>

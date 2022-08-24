@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Social Sentiments"
+        android:textColor="@color/black"
+        android:layout_marginLeft="80dp"
+        android:paddingTop="15dp"
+        android:layout_gravity="center"/>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/table_company"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#6F6E6E6D"
+            android:text="UserId" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#6F6E6E6D"
+            android:text="Reddit" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#6F6E6E6D"
+            android:text="Twitter" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#6F6E6E6D"
+            android:text="Total Mentions" />
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#DFDFDF"
+            android:id="@+id/total_reddit"
+            android:text="3323443" />
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#DFDFDF"
+            android:id="@+id/total_twitter"
+            android:text="32224" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#6F6E6E6D"
+            android:text="Positive Mentions" />
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#DFDFDF"
+            android:id="@+id/positive_reddit"
+            android:text="11037" />
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#DFDFDF"
+            android:id="@+id/positive_twitter"
+            android:text="Twitter" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#6F6E6E6D"
+            android:text="Negative Mentions" />
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#DFDFDF"
+            android:id="@+id/negative_reddit"
+            android:text="4332" />
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:background="#DFDFDF"
+            android:id="@+id/negative_twitter"
+            android:text="Twitter" />
+    </TableRow>
+
+</LinearLayout>

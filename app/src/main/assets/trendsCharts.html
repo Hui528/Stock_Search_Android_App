@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container" style="height: 300px; min-width: 310px"></div>
+</body>
+
+<script>
+
+    // function timeZone(timestamp) {
+    //     timezoneOffset = -moment(timestamp).tz("America/Los_Angeles").utcOffset();
+    //     return timezoneOffset;
+    // }
+
+    let periods = [];
+    let strongBuy = [];
+    let buy = [];
+    let hold = [];
+    let sell = [];
+    let strongSell = [];
+    ticker = "TSLA"
+    function fetchTrendsData(input, url) {
+        ticker = input;
+        Highcharts.getJSON(url, function (res) {
+            let length = res.length;
+            let i;
+            for (i = 0; i < length; i++) {
+                periods.push(res[i].period);
+                strongBuy.push(res[i].strongBuy);
+                buy.push(res[i].buy);
+                hold.push(res[i].hold);
+                sell.push(res[i].sell);
+                strongSell.push(res[i].strongSell);
+            }
+
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Recommendation Trends'
+                },
+                xAxis: {
+                    categories: periods, title: {
+                        text: null
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: '#Analysis',
+                        align: 'high'
+                    },
+                    labels: {
+                        overflow: 'justify'
+                    }
+                },
+                colors: ["#0B674E", "green", "#ba9723", "#e33d46", "#5e3011"],
+                plotOptions: {
+                    column: {
+                        dataLabels: {
+                            enabled: true
+                        }
+                    },
+                    series: {
+                        stacking: 'normal'
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [
+                    {
+                        name: 'Strong Buy',
+                        type: 'column',
+                        data: strongBuy
+                    },
+                    {
+                        name: 'Buy',
+                        type: 'column',
+                        data: buy
+                    },
+                    {
+                        name: 'Hold',
+                        type: 'column',
+                        data: hold
+                    },
+                    {
+                        name: 'Sell',
+                        type: 'column',
+                        data: sell
+                    },
+                    {
+                        name: 'Strong Sell',
+                        type: 'column',
+                        data: strongSell
+                    }
+                ]
+            })
+        })
+    }
+
+
+
+</script>
+
+</html>

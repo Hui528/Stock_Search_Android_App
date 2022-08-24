@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/chart_line.xml" value="0.2335" />
+        <entry key="app/src/main/res/drawable/delete.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/ic_arrow_back_black_24dp.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.2335" />
+        <entry key="app/src/main/res/drawable/launch_screen.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/star.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/star_outline.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/trade_button.xml" value="0.2335" />
+        <entry key="app/src/main/res/drawable/trending_down.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/trending_up.xml" value="0.205" />
+        <entry key="app/src/main/res/layout/about.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2517166137695313" />
+        <entry key="app/src/main/res/layout/autocomplete_item.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/dialog_cong.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/dialog_news.xml" value="0.2417332967122396" />
+        <entry key="app/src/main/res/layout/dialog_trade.xml" value="0.36165618896484375" />
+        <entry key="app/src/main/res/layout/earning.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/f_section_item.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/header.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/highcharts.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/insights.xml" value="0.3814453125" />
+        <entry key="app/src/main/res/layout/news.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/news_first.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/news_others.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/p_header.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/p_section_item.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/portfolio.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/search_result.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/section_item.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/single_peer.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/stats.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/summary.xml" value="0.30668640136718756" />
+        <entry key="app/src/main/res/layout/trends.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/viewpager.xml" value="0.34186706542968753" />
+        <entry key="app/src/main/res/menu/toolbar.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/xml/searchable.xml" value="0.3098958333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

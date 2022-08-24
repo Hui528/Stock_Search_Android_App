@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/drag-panes.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/indicators.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container" style="height: 300px; min-width: 310px"></div>
+</body>
+
+<script>
+
+    function timeZone(timestamp) {
+        // var moment = moment()
+        // var zone = 'America/Los_Angeles',
+        // timezoneOffset = -moment.tz(timestamp, zone).utcOffset();
+        timezoneOffset = -moment(timestamp).tz("America/Los_Angeles").utcOffset();
+        return timezoneOffset;
+    }
+
+    data = [];
+    ticker = "TSLA"
+    function fetchHourlyData(input, url) {
+        ticker = input;
+        Highcharts.getJSON(url, function (res) {
+            timestamp = res["timestamp"];
+            // timestamp = [1651068300, 1651068600, 1651068900, 1651069200, 1651069500, 1651069800, 1651070100, 1651070400, 1651070700, 1651071000, 1651071300, 1651071600, 1651071900, 1651072200, 1651072500, 1651072800, 1651073100, 1651073400, 1651073700, 1651074000, 1651074300, 1651074600, 1651074900, 1651075200, 1651075500, 1651075800, 1651076100, 1651076400, 1651076700, 1651077000, 1651077300, 1651077600, 1651077900, 1651078200, 1651078500, 1651078800, 1651079100, 1651079400, 1651079700, 1651080000, 1651080300, 1651080600, 1651080900, 1651081200, 1651081500, 1651081800, 1651082100, 1651082400, 1651082700, 1651083000, 1651083300, 1651083600, 1651083900, 1651084200, 1651084500, 1651084800, 1651085100, 1651085400, 1651085700, 1651086000, 1651086300, 1651086600, 1651086900, 1651087200, 1651087500, 1651087800, 1651088100, 1651088400, 1651088700, 1651089000, 1651089300, 1651089600];
+            close_prices = res["close_prices"];
+            // close_prices = [157.16, 156.32, 156.05, 156.18, 155.72, 155.76, 156.67, 156.78, 157.62, 157.14, 157.35, 157.85, 157.82, 157.91, 158, 157.91, 157.86, 158.56, 158.24, 158.14, 157.98, 157.55, 157.63, 157.69, 158.24, 158.38, 158.31, 159.0507, 159.51, 159.535, 159.32, 159.57, 159.3, 158.9999, 159.0447, 158.98, 158.64, 158.4, 158.285, 158.34, 158.89, 158.79, 158.52, 158.5, 158.73, 158.835, 158.95, 158.5, 158.38, 158.5072, 157.8791, 157.67, 157.59, 157.941, 157.8845, 157.9998, 157.71, 157.285, 156.75, 156.55, 156.5, 156.7484, 156.65, 156.46, 156.735, 156.74, 156.4789, 157.1468, 156.655, 156.52, 156.6, 156.44];
+            let length = close_prices.length;
+            let i;
+            for (i = 0; i < length; i++) {
+                data.push([timestamp[i] * 1000, close_prices[i]]);
+            }
+
+            Highcharts.stockChart('container', {
+                series: [
+                    {
+                        data: data,
+                        color: "#50C878",
+                        showInNavigator: true,
+                        name: ticker.toUpperCase(),
+                        type: 'line',
+                        tooltip: {
+                            valueDecimals: 2,
+                        },
+                    },
+                ],
+                title: { text: ticker.toUpperCase() + " Hourly Price Variation" },
+                rangeSelector: {
+                    enabled: false,
+                },
+                navigator: {
+                    series: {
+                        type: 'area',
+                        // color: this.currentColor,
+                        fillOpacity: 1,
+                    },
+                },
+                time: {
+                    getTimezoneOffset: timeZone,
+                },
+            })
+        })
+    }
+
+
+
+</script>
+
+</html>
